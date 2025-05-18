@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "solution.cpp" // Include solution
+#include "../solutions/solution.cpp"
 
 using namespace std;
 
