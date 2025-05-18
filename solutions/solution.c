@@ -10,6 +10,6 @@ typedef struct ListNode {
 // Function to merge two sorted linked lists...
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
     
-// Write your code here
+// write your code here
    
 }
