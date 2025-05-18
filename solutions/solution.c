@@ -11,5 +11,5 @@ typedef struct ListNode {
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
     
 
-    return NULL;
+   
 }
