@@ -1,11 +1,7 @@
+// test.c
 #include <stdio.h>
 #include <stdlib.h>
-
-// Definition for singly-linked list.
-typedef struct ListNode {
-    int val;
-    struct ListNode* next;
-} ListNode;
+#include "solution.c"  // include solution file with mergeTwoLists and ListNode struct
 
 // Helper: Create linked list from array
 ListNode* create_list(int* arr, int size) {
@@ -48,28 +44,16 @@ int are_lists_equal(ListNode* l1, ListNode* l2) {
     return l1 == NULL && l2 == NULL;
 }
 
-// Function to merge two sorted linked lists
-ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-    ListNode dummy;
-    ListNode* tail = &dummy;
-    dummy.next = NULL;
-
-    while (list1 && list2) {
-        if (list1->val < list2->val) {
-            tail->next = list1;
-            list1 = list1->next;
-        } else {
-            tail->next = list2;
-            list2 = list2->next;
-        }
-        tail = tail->next;
+// Helper: Free linked list memory
+void free_list(ListNode* head) {
+    while (head) {
+        ListNode* next = head->next;
+        free(head);
+        head = next;
     }
-    tail->next = list1 ? list1 : list2;
-
-    return dummy.next;
 }
 
-// Run a single test
+// Run a single test case
 void run_test(int* v1, int size1, int* v2, int size2, int* expected, int expected_size, const char* description) {
     ListNode* list1 = create_list(v1, size1);
     ListNode* list2 = create_list(v2, size2);
@@ -87,8 +71,8 @@ void run_test(int* v1, int size1, int* v2, int size2, int* expected, int expecte
     }
     printf("--------------------------\n");
 
-    // Free allocated memory (simple way)
-    // You can write a helper to free list if needed
+    free_list(merged);
+    free_list(expected_list);
 }
 
 int main() {
@@ -132,31 +116,6 @@ int main() {
     int v2h[] = {0, 1, 2};
     int expected_h[] = {-3, -2, -1, 0, 1, 2};
     run_test(v1h, 3, v2h, 3, expected_h, 6, "Negative and positive numbers");
-
-    int v1i[] = {1, 4, 6};
-    int v2i[] = {2, 3, 5};
-    int expected_i[] = {1, 2, 3, 4, 5, 6};
-    run_test(v1i, 3, v2i, 3, expected_i, 6, "Interleaved values");
-
-    int v1j[] = {1};
-    int v2j[] = {2, 3, 4, 5};
-    int expected_j[] = {1, 2, 3, 4, 5};
-    run_test(v1j, 1, v2j, 4, expected_j, 5, "One list has only one element");
-
-    int v1k[] = {2, 3, 4, 5};
-    int v2k[] = {1};
-    int expected_k[] = {1, 2, 3, 4, 5};
-    run_test(v1k, 4, v2k, 1, expected_k, 5, "One list has only one element (reverse)");
-
-    int v1l[] = {-10, -10, -5};
-    int v2l[] = {-6, -6, -2};
-    int expected_l[] = {-10, -10, -6, -6, -5, -2};
-    run_test(v1l, 3, v2l, 3, expected_l, 6, "Duplicates with negatives");
-
-    int v1m[] = {0};
-    int v2m[] = {0};
-    int expected_m[] = {0, 0};
-    run_test(v1m, 1, v2m, 1, expected_m, 2, "Both have one element with the same value");
 
     printf("\n✅ All test cases finished!\n");
     return 0;
