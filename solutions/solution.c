@@ -7,7 +7,7 @@ typedef struct ListNode {
     struct ListNode* next;
 } ListNode;
 
-// Function to merge two sorted linked lists
+// Function to merge two sorted linked lists...
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
     struct ListNode dummy;
     struct ListNode* tail = &dummy;

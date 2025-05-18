@@ -1,7 +1,7 @@
 // test.c
 #include <stdio.h>
 #include <stdlib.h>
-#include "solution.c"  // include solution file with mergeTwoLists and ListNode struct
+#include "../solutions/solution.c"  // Include the actual reverseList function
 
 // Helper: Create linked list from array
 ListNode* create_list(int* arr, int size) {
