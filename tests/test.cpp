@@ -62,5 +62,8 @@ int main() {
     runTest({-10, -10, -5}, {-6, -6, -2}, "Duplicates with negatives");
     runTest({0}, {0}, "Both have one element with the same value");
 
+    cout << "\n✅ All test cases passed!" << endl;
+
+
     return 0;
 }

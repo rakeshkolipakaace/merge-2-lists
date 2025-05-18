@@ -1,4 +1,4 @@
-// solution.cpp..
+// solution.cpp...
 
 /**
  * Definition for singly-linked list.
