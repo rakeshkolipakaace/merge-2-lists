@@ -4,7 +4,7 @@ CPP (C++)
 
 git add solutions/solution.cpp tests/test.cpp
 git commit -m "Cpp solution"
-git push
+git push origin main
 
 
 
@@ -12,7 +12,7 @@ PYTHON
 
  git add solutions/solution.py tests/test.py
  git commit -m "py Solution"
- git push
+ git push origin main
 
 
 C
@@ -20,7 +20,7 @@ C
 
 git add solutions/solution.c tests/test.c
 git commit -m "C Solution"
-git push
+git push origin main
  
 
 
@@ -28,7 +28,7 @@ JAVA
 
 git add solutions/Solution.java tests/Test.java
 git commit -m "java Solution"
-git push
+git push origin main
 
 
  
